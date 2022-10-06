@@ -45,6 +45,10 @@ app.use('/message', messageRouter);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build/index.html'));
+  });
+
+app.listen(process.env.PORT, () => {
+  console.log('The Best Server in our flat', process.env.PORT);
 });
 
 module.exports = {

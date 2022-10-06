@@ -31,5 +31,20 @@
     "eslint": "^8.19.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0"
-  }
+  },
+  "name": "we-want-home",
+  "description": "<h3> This is the group project. In this web-app people can post their adds about lost animals in goal to find their owners </h3>",
+  "version": "1.0.0",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaratKuzakhmetov/We-Want-Home.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaratKuzakhmetov/We-Want-Home/issues"
+  },
+  "homepage": "https://github.com/MaratKuzakhmetov/We-Want-Home#readme"
 }

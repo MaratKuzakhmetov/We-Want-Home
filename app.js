@@ -1,7 +1,6 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const morgan = require('morgan');
 const path = require('path');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
@@ -18,8 +17,7 @@ app.use(express.json());
 app.use(cors({ origin: true, credentials: true }));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(morgan('dev'));
-app.use(express.static(path.join(process.env.PWD, 'public')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 const sessionConfig = {
   name: 'pet',
@@ -44,6 +42,10 @@ app.use('/auth', registerRouter);
 app.use('/map', mapRouter);
 app.use('/lk', lkRouter);
 app.use('/message', messageRouter);
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build/index.html'));
+});
 
 module.exports = {
   app,

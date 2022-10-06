@@ -1,4 +1,8 @@
 {
+  "name": "we-want-home",
+  "version": "1.0.0",
+  "description": "<h3> This is the group project. In this web-app people can post their adds about lost animals in goal to find their owners </h3>",
+  "main": "app.js",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cookie-parser": "^1.4.6",
@@ -22,20 +26,12 @@
     "uuid4": "^2.0.2",
     "ws": "^8.8.0"
   },
+  "devDependencies": {},
   "scripts": {
-    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
-  "devDependencies": {
-    "eslint": "^8.19.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.26.0"
-  },
-  "name": "we-want-home",
-  "description": "<h3> This is the group project. In this web-app people can post their adds about lost animals in goal to find their owners </h3>",
-  "version": "1.0.0",
-  "main": "app.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MaratKuzakhmetov/We-Want-Home.git"

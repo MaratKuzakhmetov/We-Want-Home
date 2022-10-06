@@ -15,6 +15,10 @@ server.on('upgrade', (request, socket, head) => {
   });
 });
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build/index.html'));
+});
+
 server.listen(PORT, () => {
   console.log('Server is up on port ', process.env.PORT);
 });

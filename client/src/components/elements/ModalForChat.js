@@ -1,44 +1,26 @@
-import { useCallback, useContext, useEffect, useState } from 'react';
-import { Button, IconButton, TextField, Dialog, DialogActions } from '@mui/material';
+import { useContext, useEffect, useState } from 'react';
+import { Button, IconButton, TextField, Dialog } from '@mui/material';
 import { Send, Cancel } from '@mui/icons-material';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import ChatIcon from '@mui/icons-material/Chat';
-import axios from 'axios';
 import { UserContext } from '../../context/user';
 
 const myIP = "192.168.43.59";
 
-const socket = new WebSocket(`ws://${myIP}:3002`);
-// const socket = new WebSocket(`ws://localhost:3002`);
+// const socket = new WebSocket(`ws://${myIP}:3002`);
+const socket = new WebSocket(`ws://localhost:3002`);
 
 function ModalForChat({ id }) {
   const [open, setOpen] = useState(false);
-  const dispatch = useDispatch();
   const { user } = useContext(UserContext);
   const [value, setValue] = useState("");
   const userNamed = user.name;
   const userId = user.id;
-  console.log('id', user.id);
   const iD = useParams();
-  console.log('ID', iD.id);
   const roomId = (iD.id);
-  console.log('user.id: ', user.id);
 
   const [conversation, setConversation] = useState([]);
-
-  // const getData = () => {
-  //   const response = axios
-  //     .get('https://geolocation-db.com/json/')
-  //     .then((res) => {
-  //       console.log('res.data: ', res?.data);
-  //       setMyIP(res.data.IPv4);
-  //     });
-  // };
-
-  // useEffect(() => {
-  //   getData();
-  // }, []);
 
   useEffect(() => {
     socket.send(JSON.stringify({ type: 'GET_MESSAGES', roomId }));

@@ -1,8 +1,12 @@
+/* eslint-disable no-inner-declarations */
+/* eslint-disable no-case-declarations */
+/* eslint-disable no-shadow */
 const WebSocket = require('ws');
 const uuidv4 = require('uuid');
 const { Op } = require('sequelize');
 const { Message, User, Room, Post } = require('./db/models');
 
+const { log } = console;
 const wsServer = new WebSocket.Server({
   noServer: true, clientTracking: false,
 });
@@ -42,7 +46,6 @@ wsServer.on('connection', (ws, request) => {
               id: parsedMessage.payload.id,
             },
           });
-
           let room = await Room.findAll({ where: {
             [Op.or]: [
               { [Op.and]: [{ user1_id: parsedMessage.payload.id }, { user2_id: ownerPost.user_id }] },

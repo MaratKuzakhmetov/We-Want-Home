@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const fs = require('fs').promises;
 const moment = require('moment');
-const e = require('express');
 const { sendMail } = require('../utils/mailer');
 const { upload } = require('../middlewares/upload');
 const {
@@ -17,6 +16,7 @@ const {
   Favorite,
 } = require('../db/models');
 const favorite = require('../db/models/favorite');
+const e = require('express');
 require('moment/locale/ru');
 // ручка для отображения ВСЕХ постов АДМИНУ или только СВОИХ постов ЮЗЕРУ
 router.route('/').get(async (req, res) => {
@@ -169,37 +169,36 @@ router
       const { id } = req.params;
       let like = await Favorite.findOne({
         where: { post_id: id, user_id: res.locals.userId },
-        include: [{ model: Post, include: [{ model: Image, limit: 1 }, { model: Status }, { model: Breed }] }, { model: User }],
+        include: [{ model: Post, include: [{ model: Image, limit: 1 }, {model: Status}, {model: Breed}] }, {model: User}],
       });
       if (!like) {
         await Favorite.create({ user_id: res.locals.userId, post_id: id });
         like = await Favorite.findOne({
           where: { post_id: id, user_id: res.locals.userId },
-          include: [{ model: Post, include: [{ model: Image, limit: 1 }, { model: Status }, { model: Breed }] }, { model: User }],
+          include: [{ model: Post, include: [{ model: Image, limit: 1}, {model: Status}, {model: Breed}]}, {model: User}],
         });
       } else if (like) {
         await Favorite.destroy({
           where: { user_id: res.locals.userId, post_id: id },
         });
       }
-
       const post = {
         photo_url: like.Post.dataValues.Images[0].dataValues.image,
         text: like.Post.dataValues.text,
         type_id: like.Post.dataValues.type_id,
         address_string: like.Post.dataValues.address_string,
         post_id: like.Post.dataValues.id,
-        status: like.Post.dataValues.Status.status,
-        breed: like.Post.dataValues.Breed.breed,
-        user_name: like.User.dataValues.name,
-        user_photo: like.User.dataValues.user_photo,
+			status: like.Post.dataValues.Status.status,
+			breed: like.Post.dataValues.Breed.breed,
+			user_name: like.User.dataValues.name,
+			user_photo: like.User.dataValues.user_photo,
         timeSinceMissing: moment(
           like.Post.dataValues.lost_date
             ?.toISOString()
             .split('T')[0]
             .split('-')
             .join(''),
-          'YYYYMMDD',
+          'YYYYMMDD'
         ).fromNow(),
       };
       res.json(post);
@@ -220,7 +219,7 @@ router.route('/likes').get(async (req, res) => {
   try {
     const posts = await Favorite.findAll({
       where: { user_id: res.locals.userId },
-      include: [{ model: Post, include: [{ model: Image, limit: 1 }, { model: Status }, { model: Breed }] }, { model: User }],
+      include: [{ model: Post, include: [{ model: Image, limit: 1 }, {model: Status}, {model: Breed}] }, {model: User}],
     });
     const result = posts.map((el) => ({
       photo_url: el.Post.dataValues.Images[0].dataValues.image,
@@ -228,17 +227,17 @@ router.route('/likes').get(async (req, res) => {
       type_id: el.Post.dataValues.type_id,
       address_string: el.Post.dataValues.address_string,
       post_id: el.Post.dataValues.id,
-      status: el.Post.dataValues.Status.status,
-      breed: el.Post.dataValues.Breed.breed,
-      user_name: el.User.dataValues.name,
-      user_photo: el.User.dataValues.user_photo,
+			status: el.Post.dataValues.Status.status,
+			breed: el.Post.dataValues.Breed.breed,
+			user_name: el.User.dataValues.name,
+			user_photo: el.User.dataValues.user_photo,
       timeSinceMissing: moment(
         el.Post.dataValues.lost_date
           ?.toISOString()
           .split('T')[0]
           .split('-')
           .join(''),
-        'YYYYMMDD',
+        'YYYYMMDD'
       ).fromNow(),
     }));
     res.json(result);
@@ -273,6 +272,7 @@ router
       const updatePost = await Post.findOne({ where: { id: req.params.id } });
       const arr = req.files;
       if (updatePost.user_id === res.locals.userId) {
+        // const fileName = updatePost.image; // под вопросом, мне кажется надо править
         updatePost.text = req.body.text;
         updatePost.pet_id = req.body.pet_id;
         updatePost.type_id = req.body.type_id;
@@ -304,6 +304,7 @@ router
             });
           }
         }
+        // await fs.unlink(`${process.env.PWD}/public/images/${fileName}`); // не работает, надо раскомментить и править
         res.json(updatePost);
       }
     } catch (err) {

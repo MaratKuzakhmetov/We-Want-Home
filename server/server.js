@@ -1,7 +1,9 @@
 const { createServer } = require('http');
-const { app } = require('./app');
+const { app, sessionParser } = require('./app');
 const { wsServer } = require('./websocket');
 require('dotenv').config();
+
+const PORT = process.env.PORT || 3002;
 
 const server = createServer(app);
 
@@ -13,10 +15,6 @@ server.on('upgrade', (request, socket, head) => {
   });
 });
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client/build/index.html'));
-  });
-
-app.listen(process.env.PORT, () => {
-  console.log('The Best Server in our flat', process.env.PORT);
+server.listen(PORT, () => {
+  console.log('Server is up on port ', PORT);
 });

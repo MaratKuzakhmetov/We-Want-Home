@@ -1,39 +1,39 @@
-# We-Want-Home
+# Хотим домой (командный проект)
 <h3>
-This is the group project. In this web-app people can post their adds about lost animals in goal to find their owners
+Хотим домой - это сервис для размещения объявлений о потерянных и найденных животных.
 </h3>
 
 <hr>
 
 <h4>
-Here you can see some printScreens from our app:
+Представляем несколько принскринов нашего приложения:
 </h4>
 <p>
-This is the Main Page. You start your journey in our app from this picture
+Главная страница. Все начинается именно отсюда :))
 </p>
 <img width="1440" alt="mainPage" src="./mainPage.png">
 
 <p>
-We placed all adds on Yandex Maps. Here we can choose the map with lost animals and with found animals
+Одна из главных "фишек" нашего проекта - возможность отображения на карте всех объявлений пользователей (потерянных животных - во вкладке "Потеряшки", найденных - во вкладке "Найденыши").
 </p>
 <img width="1440" alt="addsOnMap" src="./addsOnMap.png">
 
 <p>
-We can also see the list of all lost or found animals in our catalog. By the way, you can use filters to find the necessary animal quickly
+Также можно посмотреть список всех объявлений, применить необходимые фильтры для удобства поиска.
 </p>
 <img width="1440" alt="listOfAnimals" src="./listOfAnimals.png">
 
 <p>
-If you want to find more information about add or animal, you can see it in animal card. Moreover, you can connect with add's owner here via phone, email or chat
+Зайдя в карточку конкретного животного, можно посмотреть подробную информацию о нем. Кроме того, можно связаться с пользователем, разместившим объявление, посредством телефона, емайла, а также отправить сообщение в чат.
 </p>
 <img width="1440" alt="cardOfAnimal" src="./cardOfAnimal.png">
 
 <p>
-If some add or animal is very important for you, you can add it to your list of favorites
+Конечно же, любое объявление можно добавить в избранное.
 </p>
 <img width="1440" alt="favorites" src="./favorites.png">
 
 <p>
-And you can also see all your adds in your personal account
+В личном кабинете Вы можете загрузить/изменить личное фото, отредактировать данные, а также посмотреть список размещенных Вами объявлений.
 </p>
 <img width="1440" alt="personalAccount" src="./personalAccount.png">

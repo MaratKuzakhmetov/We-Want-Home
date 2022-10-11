@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {
-  Button,
   Card,
   CardMedia,
   CardContent,
@@ -12,26 +11,20 @@ import {
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { FavoriteBorder, PinDrop, Restore } from '@mui/icons-material';
+import { PinDrop, Restore } from '@mui/icons-material';
 import { makeLikeThunk } from '../../redux/actions/adverts';
 
 export default function SmallCard({ post }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { likes } = useSelector((state) => state);
-  const [flag, setFlag] = React.useState(false);
   const petLink = () => {
     navigate(`/pet/${post.id}`);
   };
   const makeLike = (e, obj) => {
     dispatch(makeLikeThunk(obj));
     likes.indexOf((el) => el.post_id === post.id);
-    // const icon = e.target.classList.contains('like-icon') ? e.target : e.target.querySelector('.like-icon'); // находим элемент иконки
-    // icon.classList.toggle("filled");
   };
-
-  // console.log('likes: ', likes);
-  // console.log('post: ', post);
 
   return (
     <Card sx={{ minWidth: 216, maxWidth: 216 }} className="card small-card">

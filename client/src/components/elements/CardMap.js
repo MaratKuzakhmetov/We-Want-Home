@@ -16,14 +16,12 @@ function CardMap({ post, hasLike, setTypeAndPan }) {
   };
 
   const makeLike = React.useCallback((obj) => {
-    console.log('clicckkk');
     dispatch(makeLikeThunk(obj));
   }, []);
 
   return (
     <Card className="card map-card" variant="outlined">
       <CardActionArea onClick={() => setTypeAndPan(post.address_lattitude, post.address_longitude)} sx={{ display: 'flex' }}>
-        {/* <CardActionArea onClick={petLink} sx={{ display: 'flex' }}> */}
 
         <CardMedia className="card-photo" component="img" sx={{ width: 130 }} image={post?.photo_url} alt="Фото питомца" />
         <CardContent className="card-content">

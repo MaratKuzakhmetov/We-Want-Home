@@ -7,7 +7,6 @@ import CardWide from './elements/CardWide';
 function Favor() {
   const dispatch = useDispatch();
   const { likes } = useSelector((state) => state);
-  console.log('likes', likes);
   useEffect(() => {
     dispatch(getLikesThunk());
   }, []);
@@ -43,7 +42,6 @@ function Favor() {
                     <CardWide
                       key={post?.id}
                       post={post}
-                      // handleDelete={handleDeletePost}
                     />
                   ))}
                 </Stack>

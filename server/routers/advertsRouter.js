@@ -239,7 +239,7 @@ router.route('/filter').post(async (req, res) => {
         'YYYYMMDD',
       ).fromNow(),
       photo_url: el.Images[0]?.image,
-      flag: true,
+      flag: true, // Марат - спец флаг чтобы проверить, работал ли фильтр, но он мб и не нужен, но удалять боюсь
     }));
     console.log('result: ', result);
     res.json(result);
@@ -370,6 +370,7 @@ router.route('/:id').get(async (req, res) => {
       })
     ).map((el) => el.image);
     post.images = images;
+    // images.forEach((el, ind) => (post[`image${ind}`] = el.image));
     res.json({ post });
   } catch (error) {
     console.log(error);

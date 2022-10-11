@@ -7,7 +7,7 @@ import FilterChip from './FilterChip';
 export default function Filters({ adverts }) {
   const dispatch = useDispatch();
   const { params, filtered } = useSelector((state) => state);
-  const { types, pets, breeds, colors, sizes, statuses } = params;
+  const { pets, breeds, colors, sizes, statuses } = params;
   const [filter, setFilter] = React.useState({});
   React.useEffect(() => {
     dispatch(getParamsThunk());
@@ -84,9 +84,6 @@ export default function Filters({ adverts }) {
           </Stack>
 
         </Stack>
-        {/* <Button type="submit" variant="contained" className="filter-apply-button">
-          Применить
-        </Button> */}
       </div>
     </form>
   );

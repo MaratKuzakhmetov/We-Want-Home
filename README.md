@@ -1,4 +1,4 @@
-# Хотим домой (командный проект)
+# We Want Home
 <h3>
 We Want Home - is a service for posting ads about lost and found animals.
 </h3>

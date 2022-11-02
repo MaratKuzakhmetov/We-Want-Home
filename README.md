@@ -1,30 +1,30 @@
 # Хотим домой (командный проект)
 <h3>
-Хотим домой - это сервис для размещения объявлений о потерянных и найденных животных.
+We Want Home - is a service for posting ads about lost and found animals.
 </h3>
 
 <hr>
 
 <h4>
-Представляем несколько принскринов нашего приложения:
+Here are some screenshots of the application:
 </h4>
 <p>
-Главная страница. Все начинается именно отсюда :))
+Main page. It all starts from here.
 </p>
 <img width="1440" alt="mainPage" src="./mainPage.png">
 
 <p>
-Одна из главных "фишек" нашего проекта - возможность отображения на карте всех объявлений пользователей (потерянных животных - во вкладке "Потеряшки", найденных - во вкладке "Найденыши").
+One of the main features of our project is the ability to display all user announcements on the map (lost animals - in the "Lost" tab, found ones - in the "Found" tab).
 </p>
 <img width="1440" alt="addsOnMap" src="./addsOnMap.png">
 
 <p>
-Также можно посмотреть список всех объявлений, применить необходимые фильтры для удобства поиска.
+You can also view a list of all ads, apply the necessary filters to make your search easier.
 </p>
 <img width="1440" alt="listOfAnimals" src="./listOfAnimals.png">
 
 <p>
-Зайдя в карточку конкретного животного, можно посмотреть подробную информацию о нем. Кроме того, можно связаться с пользователем, разместившим объявление, посредством телефона, емайла, а также отправить сообщение в чат.
+By going to the card of a particular animal, you can see detailed information about it. In addition, you can contact the user who posted the ad via phone, email, and also send a message to the chat.
 </p>
 <img width="1440" alt="cardOfAnimal" src="./cardOfAnimal.png">
 
@@ -34,6 +34,6 @@
 <img width="1440" alt="favorites" src="./favorites.png">
 
 <p>
-В личном кабинете Вы можете загрузить/изменить личное фото, отредактировать данные, а также посмотреть список размещенных Вами объявлений.
+In your personal account, you can upload/change your personal photo, edit the data, and also view the list of ads you have posted.
 </p>
 <img width="1440" alt="personalAccount" src="./personalAccount.png">
